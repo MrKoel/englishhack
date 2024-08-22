@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Program Bahasa Inggris</title>
+    <style>
+        body {
+        
+            font-family: Open Sans;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            background-image: url('background.jpg'); /* Ganti dengan path gambar Anda */
+            background-size: cover; /* Menyebabkan gambar mencakup seluruh background */
+            background-position: center; /* Mengatur gambar agar berada di tengah */
+            background-repeat: no-repeat; /* Menghindari pengulangan gambar */
+            
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        header {
+            background-color: #021827; /* Warna biru dongker */
+            color: #fff;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        header h1 {
+            text-transform: uppercase;
+            margin: 10px;
+            font-size: 25px;
+            position: relative;
+            animation: wave 3s infinite;
+            padding-left: 10px; 
+        }
+        @keyframes wave {
+            0%, 100% {
+                transform: translateX(0);
+            }
+            50% {
+                transform: translateX(-10px);
+            }
+        }
+        header img {
+            position: absolute;
+            top: 10px;
+            left: 50px;
+            width: 40px;
+            height: auto;
+            animation: shine 2s infinite, flip 4s infinite;
+        }
+        @keyframes shine {
+            0% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.5;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        @keyframes flip {
+            0% {
+                transform: rotateY(0deg);
+            }
+            50% {
+                transform: rotateY(180deg);
+            }
+            100% {
+                transform: rotateY(360deg);
+            }
+        }
+        .nav-links {
+            position: absolute;
+            top: 20px;
+            right: 10px;
+        }
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 18px;
+        }
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
+        .main {
+            margin-top: 20px;
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        .section {
+            margin-top: 30px;
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .section h2 {
+            color: #333;
+            font-size: 25px;
+            margin-bottom: 20px;
+        }
+        .progress {
+            margin-top: 40px;
+            padding: 15px;
+            background: #eaeaea;
+            border-radius: 10px;
+        }
+        .progress-bar {
+            background: #cf210a;
+            width: 0;
+            height: 20px;
+            border-radius: 10px;
+            transition: width 0.5s ease-in-out;
+        }
+        .video-title {
+            font-size: 15px;
+            margin: 10px 0 10px 0;
+            color: #0a3d62;
+            font-weight: bold;
+        }
+        .video-container {
+            width: 300px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            transition: width 0.5s ease-in-out;
+            position: relative;
+        }
+        .video-container video {
+            width: 100%;
+            height: auto;
+        }
+        .video-container.video-playing {
+            width: 100%;
+        }
+        .disabled {
+            background-color: #ccc;
+            color: #999;
+            cursor: not-allowed;
+        }
+      
+    /* Gaya tombol umum */
+    button {
+        background-color: #0288d1;
+        color: #fff;
+        border: none;
+        padding: 15px 25px;
+        font-size: 18px;
+        font-weight: bold;
+        border-radius: 25px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #026fa1;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        transform: translateY(-3px);
+    }
+
+    button:active {
+        background-color: #02577b;
+        transform: translateY(0);
+    }
+
+    /* Gaya tombol disable */
+    button.disabled {
+        background-color: #ccc;
+        color: #999;
+        box-shadow: none;
+        cursor: not-allowed;
+    }
+
+    /* Gaya khusus untuk tombol Placement Test */
+    #placement-test button {
+        background-color: #011927;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        font-size: 18px;
+        font-weight: bold;
+        border-radius: 25px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+        cursor: pointer;
+    }
+
+    #placement-test button:hover {
+        background-color: #388e3c;
+    }
+
+    #placement-test button:active {
+        background-color: #2e7d32;
+    }
+
+    /* Gaya khusus untuk tombol Materi Telah Dibaca */
+    #materi button {
+        background-color: #011927;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        font-size: 18px;
+        font-weight: bold;
+        border-radius: 25px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+        cursor: pointer;
+    }
+
+    #materi button:hover {
+        background-color: #f9a825;
+    }
+
+    #materi button:active {
+        background-color: #f57f17;
+    }
+
+    /* Gaya khusus untuk tombol Mulai Post Test */
+    #post-test button {
+        background-color: #011927;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        font-size: 18px;
+        font-weight: bold;
+        border-radius: 25px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+        cursor: pointer;
+        margin-top: 20px;
+    }
+
+    #post-test button:hover {
+        background-color: #c62828;
+    }
+
+    #post-test button:active {
+        background-color: #b71c1c;
+    }
+</style>
+
+</style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <img src="logo.png" alt="Logo">
+            <h1>Independent Clause</h1>
+            <div class="nav-links">
+                <a href="#placement-test">Pre-Test</a>
+                <a href="#materi">Materi</a>
+                <a href="#video-pembelajaran">Video Pembelajaran</a>
+                <a href="#post-test">Progress</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container main">
+        <!-- Placement Test Section -->
+        <div class="section" id="placement-test">
+            <h2>Pre-Test</h2>
+            <p>Test untuk mengetahui kemampuan bahasa Inggris Anda sebelum mempelajari materi.</p>
+            <button onclick="startPlacementTest()">Pre Test</button>
+        </div>
+
+        <!-- Material Section -->
+        <div class="section" id="materi">
+            <h2>Materi</h2>
+            <p id="materi-content">Salah dua komponen yang sering ditemui dalam pembentukan kalimat adalah independent clause dan dependent clause. Untuk mengenal perbedaan keduanya lebih lanjut, kamu bisa simak artikel ini! </p>
+
+                <b><p>Definisi Independent Clause dan Dependent Clause</p></b>
+                <b><p>1. Independent clause</p></b>
+                <p>Merupakan klausa yang dapat berdiri sendiri sebagai kalimat karena memiliki makna yang utuh dan lengkap. Klausa ini telah memenuhi unsur pokok kalimat, yaitu subjek dan predikat, dan tidak memerlukan klausa lain untuk melengkapinya.</p>
+                
+                <b><p>2. Dependent clause</p></b>
+                <p>Sebagai kebalikan dari independent clause, dependent clause tidak dapat berdiri sendiri sebagai kalimat yang lengkap. Meskipun memiliki subjek dan predikat, klausa ini memerlukan independent clause untuk memberikan makna yang utuh. Dependent clause sering diawali dengan kata penghubung seperti because, although, if, dan lainnya.</p>
+                
+                <b><p>Perbedaan Independent Clause dan Dependent Clause</p></b>
+                <p>Dalam memahami struktur kalimat Bahasa Inggris, pemahaman terhadap independent clause dan dependent clause sangat esensial. Meskipun keduanya adalah klausa yang memiliki subjek dan predikat, terdapat perbedaan mendasar yang membedakan keduanya. Berikut adalah perbedaan antara independent clause dan dependent clause:</p>
+                
+                <b><p>1. Kemandirian dalam kalimat</p></b>
+                   <p>Independent clause dapat berdiri sendiri sebagai kalimat yang memiliki makna lengkap dan utuh tanpa memerlukan klausa lain. Sedangkan dependent clause, tidak dapat berdiri sendiri sebagai kalimat karena tidak memiliki makna yang lengkap dan utuh. Klausa ini memerlukan tambahan dari independent clause.</p>
+                
+                <b><p>2. Kehadiran kata penghubung</p></b>
+                   <p>Independent clause biasanya tidak diawali dengan kata penghubung (conjunctive words). Sementara dependent clause seringkali diawali dengan kata penghubung seperti because, if, although, so, dan lainnya.</p>
+                
+                <b><p>3. Makna dalam kalimat</p></b>
+                   <p>Independent clause mengandung makna yang bisa dipahami dengan jelas tanpa memerlukan konteks tambahan. Sedangkan, dependent clause memerlukan konteks tambahan, biasanya dari independent clause, untuk memberikan makna yang jelas.</p>
+                
+                <b><p>4. Fungsi dalam kalimat</b></p>
+                   <p>Independent clause merupakan pusat dari informasi dalam suatu kalimat dan biasanya mengandung poin utama. Sementara, dependent clause emberikan informasi tambahan atau konteks untuk independent clause, menjelaskan sebab-akibat, kondisi, waktu, alasan, atau aspek lainnya.</p>
+                
+                <p>Memahami perbedaan ini penting agar kamu dapat membentuk dan menginterpretasi kalimat dengan benar, serta menghindari kesalahan dalam penggunaan tata bahasa.</p>
+                                              
+                <b><p>Contoh Independent Clause dan Dependent Clause</p></b>
+                <p>Pemahaman tentang independent clause dan dependent clause akan semakin jelas dengan melihat contoh konkret. Mari kita lihat beberapa contoh dari kedua jenis klausa ini:</p>
+                
+                <p><b>1. Contoh independent clause</b></p>
+                   <p>a) She dances gracefully.</p>
+                   <p>b) The dog barked loudly.</p>
+
+                <p><b>2. Contoh dependent clause</p></b>
+                   <p>a) Because she dances gracefully…</p>
+                   <p>b) Even though the dog barked loudly…</p>
+                
+                <p><b>3. Kombinasi independent clause dan dependent clause</p></b>
+                   <p>a) Because she dances gracefully, she was chosen for the lead role.</p>
+                   <p>b) Even though the dog barked loudly, we continued our conversation.</p>
+                
+                                
+                <p>Memahami perbedaan dan penerapan antara independent clause dan dependent clause dapat meningkatkan kualitas tulisan dan percakapanmu dalam Bahasa Inggris. Mari kuasai kedua konsep ini dengan mendalam di Kelas General English Class by Schoters. Daftarkan dirimu sekarang dan ambil langkah cerdas untuk meningkatkan keterampilan Bahasa Inggrismu</p>
+            <button onclick="markMaterialAsRead()">Materi Telah Dibaca</button>
+        </div>
+
+        <!-- Video Section -->
+        <div class="section" id="video-pembelajaran">
+            <h2>Video Pembelajaran</h2>
+
+            <div class="video-title">Video 1: Simple Sentence</div>
+            <div class="video-container" id="video1-container">
+                <video controls id="video1">
+                    <source src="video1.mp4" type="video/mp4">
+                    Browser Anda tidak mendukung video tag.
+                </video>
+            </div>
+
+            <div class="video-title">Video 2: Compound Sentence</div>
+            <div class="video-container" id="video2-container">
+                <video controls id="video2">
+                    <source src="video2.mp4" type="video/mp4">
+                    Browser Anda tidak mendukung video tag.
+                </video>
+            </div>
+
+            <div class="video-title">Video 3: Complex Sentence</div>
+            <div class="video-container" id="video3-container">
+                <video controls id="video3">
+                    <source src="video3.mp4" type="video/mp4">
+                    Browser Anda tidak mendukung video tag.
+                </video>
+            </div>
+        </div>
+
+        <!-- Progress Section -->
+        <div class="section" id="post-test">
+            <h2>Progress Anda</h2>
+            <div class="progress-bar" id="progress-bar"></div>
+            <button id="post-test-btn" class="disabled" onclick="startPostTest()" disabled>Post Test</button>
+        </div>
+    </div>
+
+    <script>
+        let progress = 0;
+        let materiRead = false;
+        let videosWatched = 0;
+        const totalVideos = 3;
+        const progressBar = document.getElementById('progress-bar');
+        const postTestBtn = document.getElementById('post-test-btn');
+
+        function updateProgressBar() {
+            progressBar.style.width = progress + '%';
+
+            if (progress === 100) {
+                postTestBtn.disabled = false;
+                postTestBtn.classList.remove('disabled');
+            }
+        }
+
+        function markMaterialAsRead() {
+            if (!materiRead) {
+                materiRead = true;
+                progress += 50; // 50% dari progress setelah membaca materi
+                updateProgressBar();
+            }
+        }
+
+        function resizeVideo(videoContainerId) {
+            const videoContainer = document.getElementById(videoContainerId);
+            videoContainer.classList.add('video-playing');
+        }
+
+        function resetVideoSize(videoContainerId) {
+            const videoContainer = document.getElementById(videoContainerId);
+            videoContainer.classList.remove('video-playing');
+        }
+
+        function videoWatched() {
+            videosWatched += 1;
+            progress += 50 / totalVideos; // Sisa 50% dibagi per video
+            updateProgressBar();
+        }
+
+        const videos = document.querySelectorAll('video');
+        videos.forEach((video, index) => {
+            const containerId = `video${index + 1}-container`;
+            
+            video.addEventListener('play', function() {
+                resizeVideo(containerId);
+            });
+
+            video.addEventListener('pause', function() {
+                resetVideoSize(containerId);
+            });
+
+            video.addEventListener('ended', function() {
+                resetVideoSize(containerId);
+                videoWatched();
+            });
+        });
+
+        function startPlacementTest() {
+            alert('Placement Test dimulai!');
+        }
+
+        function startPostTest() {
+            if (progress === 100) {
+                alert('Post Test dimulai!');
+            }
+        }
+    </script>
+
+</body>
+</html>

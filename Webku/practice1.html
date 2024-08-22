@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TOEFL Structure Section</title>
+    <style>
+        /* Styling Body */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            position: relative;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
+        }
+        h2 {
+            margin-bottom: 20px;
+            color: #444;
+            text-align: center;
+        }
+        .timer-container {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #fff;
+            padding: 10px 20px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            font-size: 40px;
+            color: #d9534f;
+            font-weight: bold;
+            display: none; /* Hide initially */
+        }
+        .question {
+            display: none;
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        .question.active {
+            display: block;
+        }
+        .options {
+            text-align: left;
+            margin-top: 15px;
+        }
+        .options label {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background: #f1f1f1;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .options input {
+            margin-right: 10px;
+        }
+        .options label:hover {
+            background: #e0e0e0;
+        }
+        .btn-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .btn {
+            padding: 10px 25px;
+            border: none;
+            border-radius: 25px;
+            background: #2575fc;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .btn:hover {
+            background: #1a5fd1;
+        }
+        .btn:disabled {
+            background: #cccccc;
+            cursor: not-allowed;
+        }
+        .registration-form {
+            margin-bottom: 20px;
+        }
+        .registration-form label {
+            display: block;
+            margin-bottom: 5px;
+            color: #444;
+        }
+        .registration-form input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+        .result-container {
+            display: none;
+            text-align: center;
+        }
+        .result-container h3 {
+            color: #444;
+            margin-bottom: 20px;
+        }
+        .logo {
+            display: block;
+            margin: 0 auto 20px;
+            max-width: 80px;
+        }
+    </style>
+</head>
+<body>
+    <div class="timer-container" id="timer">25:00</div>
+    <div class="container">
+
+        <!-- Logo -->
+        <img src="logo.png" alt="Logo" class="logo">
+
+        <!-- Registration Form -->
+        <form class="registration-form" id="registrationForm">
+            <h2>TOEFL Structure Section</h2>
+            <label for="name">Name of Participant:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="date">Date of Test:</label>
+            <input type="date" id="date" name="date" required>
+
+            <label for="whatsapp">WhatsApp Number:</label>
+            <input type="tel" id="whatsapp" name="whatsapp" required>
+
+            <div class="btn-container">
+                <button type="button" class="btn" id="startBtn">Start Test</button>
+            </div>
+        </form>
+
+        <!-- Questions Container -->
+        <div id="questionsContainer" style="display: none;">
+            <!-- Question 1 -->
+            <div class="question active">
+                <p>1. He _______ to the store every day.</p>
+                <div class="options">
+                    <label><input type="radio" name="q1" value="a"> go</label>
+                    <label><input type="radio" name="q1" value="b"> goes</label>
+                    <label><input type="radio" name="q1" value="c"> gone</label>
+                    <label><input type="radio" name="q1" value="d"> going</label>
+                </div>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="question">
+                <p>2. The book _______ on the table is mine.</p>
+                <div class="options">
+                    <label><input type="radio" name="q2" value="a"> lies</label>
+                    <label><input type="radio" name="q2" value="b"> laying</label>
+                    <label><input type="radio" name="q2" value="c"> lie</label>
+                    <label><input type="radio" name="q2" value="d"> laying</label>
+                </div>
+            </div>
+
+            <!-- Question 3 -->
+            <div class="question">
+                <p>3. They _______ a new car next month.</p>
+                <div class="options">
+                    <label><input type="radio" name="q3" value="a"> will buy</label>
+                    <label><input type="radio" name="q3" value="b"> buying</label>
+                    <label><input type="radio" name="q3" value="c"> buys</label>
+                    <label><input type="radio" name="q3" value="d"> buy</label>
+                </div>
+            </div>
+
+            <div class="btn-container">
+                <button id="prevBtn" class="btn" disabled>Previous</button>
+                <button id="nextBtn" class="btn">Next</button>
+            </div>
+        </div>
+
+        <!-- Result Container -->
+        <div id="resultContainer" class="result-container">
+            <h3>Test Completed!</h3>
+            <p>Your answers have been submitted successfully.</p>
+            <p id="participantInfo"></p>
+            <p id="score"></p>
+        </div>
+    </div>
+
+    <script>
+        let currentQuestion = 0;
+        const questions = document.querySelectorAll('.question');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const timerElement = document.getElementById('timer');
+        const resultContainer = document.getElementById('resultContainer');
+        const scoreElement = document.getElementById('score');
+        const participantInfo = document.getElementById('participantInfo');
+        let timeRemaining = 1500; // 25 minutes in seconds
+        let score = 0;
+
+        document.getElementById('startBtn').addEventListener('click', function() {
+            const name = document.getElementById('name').value;
+            const date = document.getElementById('date').value;
+            const whatsapp = document.getElementById('whatsapp').value;
+
+            // Simpan informasi peserta
+            participantInfo.innerHTML = `
+                Name: ${name} <br>
+                Date of Test: ${date} <br>
+                WhatsApp Number: ${whatsapp}
+            `;
+
+            document.getElementById('registrationForm').style.display = 'none';
+            document.getElementById('questionsContainer').style.display = 'block';
+            timerElement.style.display = 'block';
+            startTimer();
+        });
+
+        function showQuestion(index) {
+            questions.forEach((question, i) => {
+                question.classList.remove('active');
+                if (i === index) {
+                    question.classList.add('active');
+                }
+            });
+
+            prevBtn.disabled = index === 0;
+            nextBtn.textContent = index === questions.length - 1 ? 'Submit' : 'Next';
+        }
+
+        nextBtn.addEventListener('click', () => {
+            if (currentQuestion < questions.length - 1) {
+                currentQuestion++;
+                showQuestion(currentQuestion);
+            } else {
+                submitTest();
+            }
+        });
+
+        prevBtn.addEventListener('click', () => {
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                showQuestion(currentQuestion);
+            }
+        });
+
+        function startTimer() {
+            const countdown = setInterval(() => {
+                const minutes = Math.floor(timeRemaining / 60);
+                const seconds = timeRemaining % 60;
+
+                timerElement.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+
+                if (timeRemaining > 0) {
+                    timeRemaining--;
+                } else {
+                    clearInterval(countdown);
+                    alert("Time's up! Your answers have been submitted.");
+                    submitTest();
+                }
+            }, 1000);
+        }
+
+        function submitTest() {
+            calculateScore();
+            document.getElementById('questionsContainer').style.display = 'none';
+            timerElement.style.display = 'none';
+            resultContainer.style.display = 'block';
+            scoreElement.textContent = `Your Score: ${score}`;
+        }
+
+        function calculateScore() {
+            // Simple score calculation (for demonstration purposes)
+            const correctAnswers = ['b', 'a', 'a'];
+            correctAnswers.forEach((answer, index) => {
+                const userAnswer = document.querySelector(`input[name="q${index + 1}"]:checked`);
+                if (userAnswer && userAnswer.value === answer) {
+                    score++;
+                }
+            });
+        }
+
+        showQuestion(currentQuestion);
+    </script>
+</body>
+</html>

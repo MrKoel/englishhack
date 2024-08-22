@@ -1,0 +1,433 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+header {
+    background-color: #2c3e50;
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo {
+    width: 45px;
+    height: auto;
+}
+
+header nav {
+    flex-grow: 1;
+    margin-left: 20px;
+}
+
+header nav a {
+    margin: 0 10px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+header nav a:hover {
+    color: #3498db;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
+.search-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-container input {
+    padding: 8px 40px 8px 8px;
+    border-radius: 5px;
+    border: none;
+    margin-right: 10px;
+    width: 200px;
+}
+
+.search-container .search-icon {
+    position: absolute;
+    right: 15px;
+    width: 16px;
+    height: 16px;
+}
+
+.header-right .btn-daftar-masuk {
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.header-right .btn-daftar-masuk:hover {
+    background-color: #2980b9;
+}
+
+.banner {
+    background-color: #ecf0f1;
+    position: relative;
+    text-align: center;
+    color: #2c3e50;
+    padding: 40px 20px;
+}
+
+.banner-image {
+    width: 90%;
+    max-height: 350px;
+    object-fit: cover;
+}
+
+.banner-text {
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.banner-text h1 {
+    font-size: 2.5em;
+    margin: 0 0 10px;
+}
+
+.banner-text p {
+    font-size: 1.2em;
+    margin: 0 0 20px;
+}
+
+.banner-text .btn-cta {
+    padding: 5px 20px;
+    background-color: #120a62;
+    color: white;
+    text-decoration: none;
+    font-size: 1.1em;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.banner-text .btn-cta:hover {
+    background-color: #2980b9;
+}
+
+.container {
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h2 {
+    color: #2c3e50;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    font-size: 1.8em;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.feature-item {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.feature-item img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.feature-item h3 {
+    font-size: 1.2em;
+    margin: 0;
+    color: #2c3e50;
+}
+
+.feature-item h3 a {
+    text-decoration: none;
+    color: #2c3e50;
+    transition: color 0.3s;
+}
+
+.feature-item h3 a:hover {
+    color: #3498db;
+}
+
+.btn-container {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.btn-container .btn-cta {
+    padding: 5px 50px;
+    background-color: #16055b;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.btn-container .btn-cta:hover {
+    background-color: #2980b9;
+}
+
+footer {
+    background-color: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    position: relative;
+    width: 100%;
+    margin-top: 40px;
+}
+
+footer p {
+    margin: 0;
+}
+
+.form-container {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.form-container h2 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+.form-container label {
+    display: block;
+    margin-bottom: 8px;
+    color: #2c3e50;
+}
+
+.form-container input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.form-container button {
+    width: 100%;
+    padding: 10px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.form-container button:hover {
+    background-color: #2980b9;
+
+}
+
+.materi-latihan-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(150px, 1fr)); /* Ubah ukuran kolom */
+    gap: 15px; /* Sesuaikan jarak antar kotak jika perlu */
+    margin-top: 20px;
+}
+
+.materi-item {
+    background-color: rgb(255, 255, 255);
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.materi-item .btn-cta {
+    display: block;
+    padding: 5px 15px; /* Perkecil padding */
+    margin: 5px 0; /* Beri jarak antar tombol */
+    background-color: #16055b;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    font-size: 0.9em; /* Perkecil font-size */
+}
+
+.materi-item .btn-cta:hover {
+    background-color: #2980b9;
+}
+
+
+.materi-item h3, .latihan-item h3 {
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.materi-item p, .latihan-item p {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.materi-item .btn-cta, .latihan-item .btn-cta {
+    padding: 10px 30px;
+    background-color: #16055b;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.materi-item .btn-cta:hover, .latihan-item .btn-cta:hover {
+    background-color: #2980b9;
+}
+
+.materi-item img {
+    width: 100%;  /* Gambar akan menyesuaikan dengan lebar kotak */
+    height: auto; /* Tinggi gambar akan menyesuaikan proporsional terhadap lebar */
+    border-radius: 8px; /* Opsional: menambahkan border-radius agar sudut gambar melengkung */
+    object-fit: cover; /* Gambar akan dipotong agar memenuhi kotak dengan tetap menjaga aspek rasio */
+}
+
+
+.testimoni-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.testimoni-item {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.testimoni-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.testimoni-quote {
+    font-style: italic;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.testimoni-name {
+    color: #3498db;
+    font-weight: bold;
+}
+
+.voucher-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.voucher-item {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.voucher-image {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.voucher-item .btn-cta {
+    display: block;
+    margin: 10px 0;
+    padding: 10px 20px;
+    background-color: #16055b;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.voucher-item .btn-cta:hover {
+    background-color: #2980b9;
+}
+
+.wa-button {
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    z-index: 1000;
+}
+
+.wa-button img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s;
+}
+
+.wa-button img:hover {
+    transform: scale(1.1);
+}
+
+.carousel {
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+    margin: 20px auto;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.carousel-images {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-images img {
+    width: 100%;
+    border-radius: 10px;
+}
+
